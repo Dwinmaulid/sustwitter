@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+      <div class="row">
+        <div class="wrapper">
+            {% include "sidebar.html" %}
+                <div class="content">
+                    <article class="panel">
+                        <p class="panel-heading">
+                            <i class="fa fa-table"></i>
+                            <strong>Original Data</strong>
+                        </p>
+                        <div class="table_wrapper">
+                            <table id="table_pagination" class="table is-bordered is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Display Name</th>
+                                        <th>Location</th>
+                                        <th>Description</th>
+                                        <th>Website</th>
+                                        <th>Verified</th>
+                                        <th>Followers</th>
+                                        <th>Followings</th>
+                                        <th>Public member</th>
+                                        <th>Likes</th>
+                                        <th>Total tweets</th>
+                                        <th>Date created</th>
+                                        <th>Default theme</th>
+                                        <th>Default photo</th>
+                                        <th>Tweet's source</th>
+                                        <th>Tweet's geotagged</th>
+                                        <th>Tweet's retweets</th>
+                                        <th>Tweet's likes</th>
+                                        <th>Tweet's mentions</th>
+                                        <th>Tweet's hashtags</th>
+                                        <th>Tweet's link</th>
+                                    </tr>
+                                </thead>
+            
+                                <tbody>
+                                    {% for i in range(n): %}
+                                    <tr>
+                                        <td>{{ df.iloc[i,0] }}</td>
+                                        <td>{{ df.iloc[i,1] }}</td>
+                                        <td>{{ df.iloc[i,2] }}</td>
+                                        <td>{{ df.iloc[i,3] }}</td>
+                                        <td>{{ df.iloc[i,4] }}</td>
+                                        <td>{{ df.iloc[i,5] }}</td>
+                                        <td>{{ df.iloc[i,6] }}</td>
+                                        <td>{{ df.iloc[i,7] }}</td>
+                                        <td>{{ df.iloc[i,8] }}</td>
+                                        <td>{{ df.iloc[i,9] }}</td>
+                                        <td>{{ df.iloc[i,10] }}</td>
+                                        <td>{{ df.iloc[i,11] }}</td>
+                                        <td>{{ df.iloc[i,12] }}</td>
+                                        <td>{{ df.iloc[i,13] }}</td>
+                                        <td>{{ df.iloc[i,14] }}</td>
+                                        <td>{{ df.iloc[i,15] }}</td>
+                                        <td>{{ df.iloc[i,16] }}</td>
+                                        <td>{{ df.iloc[i,17] }}</td>
+                                        <td>{{ df.iloc[i,18] }}</td>
+                                        <td>{{ df.iloc[i,19] }}</td>
+                                        <td>{{ df.iloc[i,20] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

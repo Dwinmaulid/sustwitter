@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+        <div class="row">
+            <div class="wrapper">
+                {% include "sidebar.html" %}  
+                <div class="content">
+                    <article class="panel">
+                        <p class="panel-heading">
+                            <i class="fa fa-check-circle "></i>
+                            <strong>Checking Account</strong>
+                        </p>
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="username">Username</label>
+                            </div>
+                            <div class="field-body">
+                                <form method="POST">
+                                    <div class="field">
+                                        <div class="field has-addons">
+                                            <p class="control">
+                                                <a class="button is-static">@</a>
+                                            </p>
+                                            <p class="control" >
+                                                <input class="input" name="username" type="text" placeholder="isi username pengguna" required="required"/>
+                                            </p>
+                                            <div class="control">
+                                                <button class="button is-info">Check</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {% if is_post %}
+                        <div class="box">
+                            <article class="media">
+                                <figure class="media-left">
+                                  <p class="image is-128x128">
+                                    <img class= "is-rounded" src={{ profile_picture }}>
+                                  </p>
+                                  <label class="label">Prediksi akun:</label>
+                                  <h4><strong>{{ prediction }}</strong></h4>
+                                </figure>
+                                <div class="media-content">
+                                    <table class='table is-bordered' >
+                                        <tr>
+                                        <th>Username:</th>
+                                        <td>{{ username }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Nama tampilan:</th>
+                                        <td>{{ display_name }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Lokasi:</th>
+                                        <td>{{ location }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Deskripsi:</th>
+                                        <td>{{ description }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Website:</th>
+                                        <td>{{ website }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Status verifikasi:</th>
+                                        {% if verified == False %}
+                                            <td>Tidak terverifikasi <i class="fa fa-close"></i></td>
+                                        {% else %}
+                                            <td>Terverifikasi <i class="fa fa-check"></i></td>
+                                        {% endif %}
+                                        </tr>
+                                        <tr>
+                                        <th>Followers:</th>
+                                        <td>{{ followers }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Followings:</th>
+                                        <td>{{ followings }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Jumlah list:</th>
+                                        <td>{{ public_member }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Jumlah likes:</th>
+                                        <td>{{ likes }}</td>
+                                        </tr>
+                                        <th>Jumlah tweets:</th>
+                                        <td>{{ total_tweets }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Tanggal dibuat:</th>
+                                        <td>{{ created_at }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Personifikasi bawaan:</th>
+                                        {% if default_profile == False %}
+                                            <td>Tidak</td>
+                                        {% else %}
+                                            <td>Ya</td>
+                                        {% endif %}
+                                        </tr>
+                                        <tr>
+                                        <th>Foto profil bawaan:</th>
+                                        {% if default_profile_image == False %}
+                                            <td>Tidak</td>
+                                        {% else %}
+                                            <td>Ya</td>
+                                        {% endif %}
+                                        </tr>
+                                        <tr>
+                                        <th>Sumber tweet terakhir:</th>
+                                        <td>{{ tweet_source }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Lokasi tweet terakhir:</th>
+                                        {% if tweet_geotagged == None %}
+                                            <td>Tidak diketahui</td>
+                                        {% else %}
+                                            <td>{{ tweet_geotagged }}</td>
+                                        {% endif %}
+                                        </tr>
+                                        </tr>
+                                        <tr>
+                                        <th>Jumlah retweet tweet terakhir:</th>
+                                        <td>{{ tweet_retweets }}</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Jumlah likes tweet terakhir:</th>
+                                        <td>{{ tweet_likes }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </article>
+                        </div>
+                        {% endif %}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

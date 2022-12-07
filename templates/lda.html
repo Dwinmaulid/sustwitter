@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+      <div class="row">
+        <div class="wrapper">
+            {% include "sidebar.html" %}
+                <div class="content">
+                    <article class="panel">
+                        <p class="panel-heading">
+                            <i class="fa fa-table"></i>
+                            <strong>Linear Discriminat Analysis</strong>
+                        </p>
+                        <div class="">
+                            <table id="table_pagination" class="table is-bordered is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>LDA</th>
+                                        <th>Label</th>
+                                    </tr>
+                                </thead>
+            
+                                <tbody>
+                                    {% for i in range(n3): %}
+                                    <tr>
+                                        <td>{{ df3.iloc[i,0] }}</td>
+                                        <td>{{ df3.iloc[i,1] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

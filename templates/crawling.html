@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+      <div class="row">
+        <div class="wrapper">
+            {% include "sidebar.html" %}  
+            <div class="content">
+                <article class="panel">
+                    <p class="panel-heading">
+                        <i class="fa fa-cloud-download"></i>
+                        <strong>Crawling Data</strong>
+                    </p>
+                    <div class="table_wrapper">
+                        <table id="table_pagination" class="table is-bordered is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Display Name</th>
+                                    <th>Location</th>
+                                    <th>Description</th>
+                                    <th>Website</th>
+                                    <th>Verified</th>
+                                    <th>Followers</th>
+                                    <th>Followings</th>
+                                    <th>Public member</th>
+                                    <th>Likes</th>
+                                    <th>Total tweets</th>
+                                    <th>Date created</th>
+                                    <th>Default theme</th>
+                                    <th>Default photo</th>
+                                    <th>Tweet's source</th>
+                                    <th>Tweet's geotagged</th>
+                                    <th>Tweet's retweets</th>
+                                    <th>Tweet's likes</th>
+                                    <th>Tweet's mentions</th>
+                                    <th>Tweet's hashtags</th>
+                                    <th>Tweet's link</th>
+                                </tr>
+                            </thead>
+            
+                            <tbody>
+                                {% for tweet in tweets %}
+                                <tr>
+                                    <td>{{ tweet.user.screen_name }}</td>
+                                    <td>{{ tweet.user.name }}</td>
+                                    <td>{{ tweet.user.location }}</td>
+                                    <td>{{ tweet.user.description }}</td>
+                                    <td>{{ tweet.user.url }}</td>
+                                    <td>{{ tweet.user.verified }}</td>
+                                    <td>{{ tweet.user.followers_count }}</td>
+                                    <td>{{ tweet.user.friends_count }}</td>
+                                    <td>{{ tweet.user.listed_count }}</td>
+                                    <td>{{ tweet.user.favourites_count }}</td>
+                                    <td>{{ tweet.user.statuses_count }}</td>
+                                    <td>{{ tweet.user.created_at }}</td>
+                                    <td>{{ tweet.user.default_profile }}</td>
+                                    <td>{{ tweet.user.default_profile_image }}</td>
+                                    <td>{{ tweet.source }}</td>
+                                    <td>{{ tweet.place }}</td>
+                                    <td>{{ tweet.retweet_count }}</td>
+                                    <td>{{ tweet.favorite_count }}</td>
+                                    <td>{{ tweet.entities['user_mentions'] }}</td>
+                                    <td>{{ tweet.entities['hashtags'] }}</td>
+                                    <td>{{ tweet.entities['urls'] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <h6>Unduh hasil crawling:
+                            <button onclick="exportTableToCSV('Hasil crawling.csv')">Download</button>
+                        </h6>
+                    </div>
+                </article>
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

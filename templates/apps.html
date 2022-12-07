@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+      <div class="row">
+        <div class="wrapper">
+            {% include "sidebar.html" %}  
+                <div class="content">
+                    <article class="panel">
+                        <p class="panel-heading">
+                            <i class="fa fa-th"></i>
+                            <strong>Applications Menu</strong>
+                        </p>
+                        {% if auth %}
+                            <h4>Hubungkan akun Twitter untuk membuka akses aplikasi:
+                                <a class="button is-info is-focused is-small" href="/apps/auth">
+                                <i class="fa fa-twitter"></i>
+                                Connect
+                                </a>
+                            </h4>
+                        {% else %}
+                        <form class="box">
+                            <h5><strong>Crawling Data</strong></h5>
+                            <p>Salah satu fitur pada sistem untuk melakukan crawling data langsung dari sosial media Twitter menggunakan Tweepy dengan akses elevated sebanyak 500 data.</p>
+                            <a class="button is-info" href="{{ url_for('crawling_data') }}">Pilih</a>
+                        </form>
+                        <form class="box">
+                            <h5><strong>Checking Account</strong></h5>
+                            <p>Salah satu fitur pada sistem untuk melakukan pengecekan akun Twitter berdasarkan username dan memperkirakan prediksi akun tersebut termasuk fake account atau tidak.</p>
+                            <a class="button is-info" href="{{ url_for('check_account') }}">Pilih</a>
+                        </form>
+                        <form class="box">
+                            <h5><strong>Demonstration Data</strong></h5>
+                            <p>Salah satu fitur pada sistem untuk melakukan demonstrasi perhitungan menggunakan data set milik pengguna yang sudah melalui preprocessing dan nantinya akan dijelaskan per tahapan pada model machine learning.</p>
+                            <a class="button is-info" href="{{ url_for('demonstration') }}">Pilih</a>
+                        </form>
+                        {% endif %}
+                    </article>
+                </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}
