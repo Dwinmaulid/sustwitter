@@ -1,0 +1,31 @@
+<div class="side-bar">
+    <ul>
+        <li class="menu-head">Welcome<a href="#" class="push_menu"><span class="fa fa-bars pull-right"></span></a></li>
+            <div class="menu">
+                <p class="menu-label">
+                    <span class="icon"><i class="fa fa-home"></i></span>General
+                </p>
+                <ul class="menu-list">
+                    <li><a href="{{  url_for('home') }}">Home</a></li>
+                    <li><a href="{{  url_for('apps') }}">Apps</a></li>
+                    <li><a href="{{  url_for('about') }}">About</a></li>
+                </ul>
+                <p class="menu-label">
+                    <span class="icon"><i class="fa fa-table"></i></span> Data
+                </p>
+                <ul class="menu-list">
+                    <li><a href="{{  url_for('original_dataset') }}">Original Data</a></li>
+                    <li><a href="{{  url_for('handled_dataset') }}">Handled Data</a></li>
+                </ul>
+                <p class="menu-label">
+                    <span class="icon"><i class="fa fa-tasks"></i></span>Process
+                </p>
+                <ul class="menu-list">
+                    <li><a href="{{  url_for('ig_dataset') }}">IG</a></li>
+                    <li><a href="{{  url_for('lda_dataset') }}">LDA</a></li>
+                    <li><a href="{{  url_for('svm_dataset') }}">SVM</a></li>
+                </ul>
+            </div>
+    </ul>
+</div>
+<script src="../static/js/scripts.js"></script>

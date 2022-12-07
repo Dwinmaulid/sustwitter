@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+        <div class="row">
+            <div class="wrapper">
+                {% include "sidebar.html" %}
+                <div class="content">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">                              
+                                <i class="fa fa-home fa-lg"></i>
+                                <strong>Home</strong>
+                            </div>
+                            <br>
+                            <div class="box is-info" style="background: rgb(178, 224, 255)">
+                                <br>
+                                <br>
+                                <div class="has-text-centered">
+                                    <h3>
+                                        <strong>
+                                            Optimasi Algoritma <i>Support Vector Machine</i> Menggunakan <i>Linear Discriminant Analysis</i> 
+                                            dan <i>Information Gain</i> untuk Identifikasi <i>Fake Account</i> di <strong>Twitter</strong>
+                                        </strong>
+                                    </h3>
+                                    <br>
+                                    <h6>
+                                        Aplikasi ini merupakan implementasi dari rancangan sistem secara bertahap dalam pembuktian perhitungan
+                                        optimasi algoritma SVM dengan bantuan seleksi fitur IG dan ekstraksi fitur LDA guna mengidentifikasi
+                                        <i>fake account</i> di sosial media Twitter. Data set dikumpulkan dengan metode <i>crawling</i> dengan bantuan
+                                        modul Tweepy sebanyak 2000 data awal termasuk duplikasi pengguna selama 6 bulan terakhir dengan 21 fitur berbeda.
+                                    </h6>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box" style="background: rgb(213, 211, 211)">
+                                    <div class="has-text-centered is-size-4 has-text-weight-semibold">
+                                        Tahapan Perhitungan
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="box" style="background: rgb(213, 211, 211)">
+                                    <div class="has-text-centered is-size-4 has-text-weight-semibold">
+                                        Tentang Dataset
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box">
+                                    <div class="is-size-5">1. Pengumpulan data dengan teknik crawling</div>
+                                    <div class="is-size-5">2. Persiapan data dengan preprocessing</div>
+                                    <div class="is-size-5">3. Seleksi fitur menggunakan IG</div>
+                                    <div class="is-size-5">4. Ekstraksi fitur menggunakan LDA</div>
+                                    <div class="is-size-5">5. Identifikasi label dan mengukur akurasi SVM</div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="box">
+                                    <li class="is-size-5">Jumlah data awal = 2000 data</li>
+                                    <li class="is-size-5">Jumlah duplikasi data = 633 data</li>
+                                    <li class="is-size-5">Jumlah data akhir = 1367 data</li>
+                                    <li class="is-size-5">Jumlah atribut awal = 21 atribut</li>
+                                    <li class="is-size-5">Jumlah atribut akhir = 16 atribut</li>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

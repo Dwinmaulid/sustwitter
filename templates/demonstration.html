@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+      <div class="row">
+        <div class="wrapper">
+            {% include "sidebar.html" %}
+                <div class="content">
+                    <article class="panel">
+                        <p class="panel-heading">
+                            <i class="fa fa-cogs"></i>
+                            <strong>Demonstration Data</strong>
+                        </p>
+                    {% if request.endpoint == 'showData' %}
+                    <div class="tabs is-centered">
+                        <ul>
+                            <li id="data-awal">
+                                <a onClick="switchDataAwal()">
+                                    <span><strong>1 Data Awal</strong></span>
+                                </a>
+                            </li>
+                            <li id="detail-ig">
+                                <a onClick="switchDetailIG()">
+                                    <span><strong>2 Detail IG</strong></span>
+                                </a>
+                            </li>
+                            <li id="hasil-ig">
+                                <a onClick="switchHasilIG()">
+                                    <span><strong>3 Hasil IG</strong></span>
+                                </a>
+                            </li>
+                            <li id="hasil-lda">
+                                <a onClick="switchHasilLDA()">
+                                    <span><strong>4 Hasil LDA</strong></span>
+                                </a>
+                            </li>
+                            <li id="hasil-svm">
+                                <a onClick="switchHasilSVM()">
+                                    <span><strong>5 Hasil SVM</strong></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--/tabs is-centered-->
+                    </div>
+
+                    <div class="container" id="data-awal-content">
+                        <article class="panel is-info">
+                            <p class="panel-body">
+                                <div class="table_wrapper">
+                                    <table id="table_pagination" class="table is-bordered is-fullwidth">
+                                        <thead>
+                                            <tr>
+                                                <th>Duplicated name</th>
+                                                <th>Without location</th>
+                                                <th>Without description</th>
+                                                <th>Without website</th>
+                                                <th>Unverified</th>
+                                                <th>Followers</th>
+                                                <th>Followings</th>
+                                                <th>Public member</th>
+                                                <th>Likes</th>
+                                                <th>Total tweets</th>
+                                                <th>Age</th>
+                                                <th>Default theme</th>
+                                                <th>Default photo</th>
+                                                <th>Source</th>
+                                                <th>Without geotagged</th>
+                                                <th>Tweet's retweets</th>
+                                                <th>Tweet's likes</th>
+                                                <th>Mentions</th>
+                                                <th>Hashtags</th>
+                                                <th>Link</th>
+                                                <th>Label</th>
+                                            </tr>
+                                        </thead>
+                        
+                                        <tbody>
+                                            {% for i in range(n): %}
+                                            <tr>
+                                                <td>{{ df.iloc[i,0] }}</td>
+                                                <td>{{ df.iloc[i,1] }}</td>
+                                                <td>{{ df.iloc[i,2] }}</td>
+                                                <td>{{ df.iloc[i,3] }}</td>
+                                                <td>{{ df.iloc[i,4] }}</td>
+                                                <td>{{ df.iloc[i,5] }}</td>
+                                                <td>{{ df.iloc[i,6] }}</td>
+                                                <td>{{ df.iloc[i,7] }}</td>
+                                                <td>{{ df.iloc[i,8] }}</td>
+                                                <td>{{ df.iloc[i,9] }}</td>
+                                                <td>{{ df.iloc[i,10] }}</td>
+                                                <td>{{ df.iloc[i,11] }}</td>
+                                                <td>{{ df.iloc[i,12] }}</td>
+                                                <td>{{ df.iloc[i,13] }}</td>
+                                                <td>{{ df.iloc[i,14] }}</td>
+                                                <td>{{ df.iloc[i,15] }}</td>
+                                                <td>{{ df.iloc[i,16] }}</td>
+                                                <td>{{ df.iloc[i,17] }}</td>
+                                                <td>{{ df.iloc[i,18] }}</td>
+                                                <td>{{ df.iloc[i,19] }}</td>
+                                                <td>{{ df.iloc[i,20] }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </p>
+                        </article>
+                    </div>
+                    <div class="is-hidden" id="detail-ig-content">
+                        <table class="table is-bordered"  style="width: 40%;">
+                            <thead>
+                                <tr>
+                                    <th>Atribut</th>
+                                    <th>Gain</th>
+                                </tr>
+                            </thead>
+            
+                            <tbody>
+                                {% for i in range(n2): %}
+                                <tr>
+                                    <td>{{ df2.iloc[i,0] }}</td>
+                                    <td>{{ df2.iloc[i,1] }}</td>
+                                </tr>
+                                {% endfor %}
+                                <p>Threshold Gain: {{ t }}</p>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="is-hidden" id="hasil-ig-content">
+                        <article class="panel is-info">
+                            <p class="panel-body">
+                                <div class="table_wrapper">
+                                    <table id="table_pagination2" class="table is-bordered is-fullwidth">
+                                        <thead>
+                                            <tr>
+                                                <th>Without location</th>
+                                                <th>Without description</th>
+                                                <th>Without website</th>
+                                                <th>Unverified</th>
+                                                <th>Followers</th>
+                                                <th>Followings</th>
+                                                <th>Public member</th>
+                                                <th>Likes</th>
+                                                <th>Total tweets</th>
+                                                <th>Age</th>
+                                                <th>Default theme</th>
+                                                <th>Source</th>
+                                                <th>Tweet's retweets</th>
+                                                <th>Tweet's likes</th>
+                                                <th>Mentions</th>
+                                                <th>Hashtags</th>
+                                                <th>Label</th>
+                                            </tr>
+                                        </thead>
+                        
+                                        <tbody>
+                                            {% for i in range(n3): %}
+                                            <tr>
+                                                <td>{{ df3.iloc[i,0] }}</td>
+                                                <td>{{ df3.iloc[i,1] }}</td>
+                                                <td>{{ df3.iloc[i,2] }}</td>
+                                                <td>{{ df3.iloc[i,3] }}</td>
+                                                <td>{{ df3.iloc[i,4] }}</td>
+                                                <td>{{ df3.iloc[i,5] }}</td>
+                                                <td>{{ df3.iloc[i,6] }}</td>
+                                                <td>{{ df3.iloc[i,7] }}</td>
+                                                <td>{{ df3.iloc[i,8] }}</td>
+                                                <td>{{ df3.iloc[i,9] }}</td>
+                                                <td>{{ df3.iloc[i,10] }}</td>
+                                                <td>{{ df3.iloc[i,11] }}</td>
+                                                <td>{{ df3.iloc[i,12] }}</td>
+                                                <td>{{ df3.iloc[i,13] }}</td>
+                                                <td>{{ df3.iloc[i,14] }}</td>
+                                                <td>{{ df3.iloc[i,15] }}</td>
+                                                <td>{{ df3.iloc[i,16] }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </p>
+                        </article>
+                    </div>
+                    <div class="is-hidden" id="hasil-lda-content">
+                        <article class="panel is-info">
+                            <p class="panel-body">
+                                <div class="">
+                                    <table id="table_pagination3" class="table is-bordered is-fullwidth">
+                                        <thead>
+                                            <tr>
+                                                <th>LDA</th>
+                                                <th>Label</th>
+                                            </tr>
+                                        </thead>
+                        
+                                        <tbody>
+                                            {% for i in range(n6): %}
+                                            <tr>
+                                                <td>{{ df6.iloc[i,0] }}</td>
+                                                <td>{{ df6.iloc[i,1] }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </p>
+                        </article>
+                    </div>
+                    <div class="is-hidden" id="hasil-svm-content">
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box" style="background: rgb(178, 224, 255)">
+                                    <div class="has-text-centered is-size-4 has-text-weight-semibold">
+                                        Metode SVM + IG + LDA
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="box" style="background: rgb(213, 211, 211)">
+                                    <div class="has-text-centered is-size-4 has-text-weight-semibold">
+                                        Metode SVM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box" style="background: rgb(178, 224, 255)">
+                                    <div class="has-text-centered is-size-4">
+                                        Akurasi perhitungan:
+                                    </div>
+                                    <div class="has-text-centered is-size-3 has-text-weight-semibold">
+                                        {{ hasil }}%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="box" style="background: rgb(213, 211, 211)">
+                                    <div class="has-text-centered is-size-4">
+                                        Akurasi perhitungan:
+                                    </div>
+                                    <div class="has-text-centered is-size-3 has-text-weight-semibold">
+                                        {{ hasil2 }}%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="box" style="background: rgb(178, 224, 255)">
+                                    <div class="has-text-centered is-size-4">
+                                        Durasi perhitungan: {{ durasi }} detik
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="box" style="background: rgb(213, 211, 211)">
+                                    <div class="has-text-centered is-size-4">
+                                        Durasi perhitungan: {{ durasi2 }} detik
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <div class=flashes>
+                          {% for message in messages %}
+                          <div class="notification is-info">
+                            <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+                            {{ filename }} {{ message }}
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                      
+                        <p>Data yang akan diproses: </p>
+                        <div class="field is-grouped">
+                          <p class="control">
+                            <form method="post" action="/demonstration.html" enctype="multipart/form-data">
+                              <label for="file-upload" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> Unggah Data CSV
+                              </label>
+                              <input class="button" id="file-upload" type="file" name="file" autocomplete="off" required>
+                              <input class="button is-info is-outlined" type="submit" value="Submit">
+                            </form>
+                          </p>
+                        <p class="control">
+                          <form action="/upload_demonstration_dataset">
+                            <input class="button is-info is-outlined" type="submit" value="Tampil data">
+                          </form>
+                        </p>
+                    </article>
+                    {% endif %}
+                </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}

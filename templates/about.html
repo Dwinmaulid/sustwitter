@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<body>
+    <div class="container2">
+        <div class="row">
+          <div class="wrapper">
+            {% include "sidebar.html" %}
+            <div class="content">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">                              
+                            <i class="fa fa-home fa-lg"></i>
+                            <strong>About</strong>
+                        </div>
+                    </div>
+                    <section class="hero is-link is-bold is-fullheight">
+                        <div class="hero-body">
+                          <div class="container">
+                            <div class="columns  is-vcentered reverse-columns">
+                                <div data-aos="fade-right" class="column">
+                                    <h2 class="title titled is-1 mb-6">
+                                        Profil
+                                    </h2>
+                                    <h5 class="subtitle subtitled">Dwi Nur Maulidayanti (4611418031)
+                                        <br>
+                                        Mahasiswi Prodi Teknik Informatika Jurusan Ilmu Komputer di Universitas Negeri Semarang
+                                    </h5>
+                                    <a class="button" href="https://www.linkedin.com/in/dwinmaulid/">
+                                        <span class="icon"><i class="fa fa-linkedin fa-lg"></i></span>
+                                    </a>
+                                    <a class="button" href="https://github.com/dwinmaulid">
+                                        <span class="icon"><i class="fa fa-github fa-lg"></i></span>
+                                    </a>
+                                    <a class="button" href="mailto:dwinmaulid@students.unnes.ac.id">
+                                        <span class="icon"><i class="fa fa-envelope fa-lg"></i></span>
+                                    </a>
+                                    
+                                </div>
+                                <div data-aos="fade-down" class="column" data-aos="fade-up">
+                                    <img src="static/img/foto.jpg" class="center" alt="foto">
+                                    </img>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </section>
+                    <br>
+                    <section class="center">
+                        <p>
+                            <strong>SusTwitter</strong> by Dwi Nur Maulidayanti
+                            <span class="icon is-small">
+                              <i class="fa fa-copyright"></i>
+                            </span>2022</a>
+                        </p>
+                      </section>                    
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+{% block scripts %}
+<script src="../static/js/scripts.js"></script>
+{% endblock %}
